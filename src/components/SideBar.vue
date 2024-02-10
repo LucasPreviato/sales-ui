@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer v-model="drawer" color="#2B2B2B">
+    <v-navigation-drawer v-model="drawer" expand-on-hover rail color="#2B2B2B">
       <div class="pa-4">
           <v-img src="/sales-ui-logo-m2.png" width="150" height="150px" class="ml-9"></v-img>
       </div>
