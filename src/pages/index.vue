@@ -21,24 +21,3 @@ import SideBar from '@/components/SideBar.vue';
 
 
 
-<style scoped>
-
-.mRigth {
-    margin-right: 100px;
-}
-
-.mLeft {
-    margin-left: 90px;
-}
-
-.v-list{
-    background: transparent !important;
-}
-
-.imag{
-    z-index: 9999 !important;
-
-}
-
-
-</style>
