@@ -13,8 +13,7 @@
 </template>
 
 <script lang="js" setup>
-import Dashboard from '@/components/Dashboard.vue';
-import SideBar from '@/components/SideBar.vue';
+import Dashboard from '@/components/dashboard/Dashboard.vue';
 
 </script>
 
