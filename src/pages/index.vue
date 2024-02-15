@@ -1,6 +1,5 @@
 <template>
     <v-app is="inspire" :style="{background: $vuetify.theme.themes.light.colors.primary}">
-        <SideBar />
         <v-main>
             <v-container>
                 <v-row>

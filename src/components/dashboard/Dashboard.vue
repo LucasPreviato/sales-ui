@@ -74,15 +74,56 @@
           </v-card-item>
           <v-card-text>
             <v-row align="center" class="mx-0">
-              <v-icon color="yellow" icon="mdi mdi-star" size="small"/>
+              <v-icon
+                color="yellow"
+                icon="mdi mdi-treasure-chest"
+                size="small"
+              />
               <div class="text-grey ms-4">
-              <h6></h6>  
+                <h6>
+                  {{ product.Product.quantity }}
+                </h6>
+              </div>
+              <v-spacer />
+              <div class="text-grey ms-4">
+                <h5>vendidos</h5>
               </div>
             </v-row>
           </v-card-text>
         </v-card>
       </v-card>
     </div>
+    <v-toolbar color="transparent" class="pr-1 mt-n2">
+      <v-toolbar-title class="text-white">Orders Report</v-toolbar-title>
+      <v-spacer />
+      <span class="text-caption text-white">Ver mais</span>
+      <v-btn density="compact" color="grey" icon="mdi mdi-chevron-right-box" />
+    </v-toolbar>
+    <h6 class="text-white ml-4 mt-n4">
+      <span class="text-red">100+</span> novos pedidos essa semana
+    </h6>
+    <v-card class="rounded-xl ma-2 pa-1" color="#424343">
+      <v-row>
+        <v-col cols="12" sm="1"></v-col>
+        <v-col cols="12" sm="2" class="text-center">
+        <span class="text-caption">ID Pedido</span>
+        </v-col>
+        <v-col cols="12" sm="2" class="text-center">
+        <span class="text-caption">Produto</span>
+        </v-col>
+        <v-col cols="12" sm="2" class="text-center">
+        <span class="text-caption">Quantidade</span>
+        </v-col>
+        <v-col cols="12" sm="2" class="text-center">
+        <span class="text-caption">Total</span>
+        </v-col>
+        <v-col cols="12" sm="2" class="text-center">
+          <span class="text-caption">Status</span>
+        </v-col>
+        <v-col cols="12" sm="1" class="text-center"></v-col>
+      </v-row>
+    </v-card>
+    <v-row></v-row>
   </div>
 </template>
 
@@ -96,11 +137,14 @@ export default {
 
   setup() {
     const products = ref({ total: 0, showing: 0, result: [] });
+    const orders = ref({ total: 0, showing: 0, result: [] });
     const currentPage = ref(1);
     const itemsPerPage = 5;
     const isLoading = ref(false);
     const isSearching = ref(false);
     const searchedProducts = ref([]);
+
+    const accessToken = "dec51cef698b578b0d383e2908f4ee6cc9ebc715";
 
     const fetchProducts = async () => {
       isLoading.value = true;
@@ -112,7 +156,7 @@ export default {
       try {
         const response = await axios.get("https://api.plugg.to/products", {
           headers: {
-            Authorization: `Bearer e9da48da607f4426f94d2403eb90ad5a56114bca`,
+            Authorization: `Bearer ${accessToken}`,
           },
         });
         console.log("Produtos da API:", response.data);
@@ -124,6 +168,29 @@ export default {
       }
     };
 
+    const fetchOrders = async () => {
+      isLoading.value = true;
+
+      const delay = 3000;
+
+      await new Promise((resolve) => setTimeout(resolve, delay));
+
+      try {
+        const response = await axios.get("https://api.plugg.to/orders", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        console.log("Pedidos da API:", response.data);
+        orders.value = response.data;
+      } catch (error) {
+        console.error("Erro ao buscar pedidos:", error);
+      } finally {
+        isLoading.value = false;
+      }
+    };
+
+
     onMounted(() => {
       fetchProducts();
     });
@@ -134,6 +201,7 @@ export default {
 
     return {
       products,
+      orders,
       isLoading,
       displayedProducts,
     };
