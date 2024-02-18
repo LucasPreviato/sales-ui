@@ -139,12 +139,12 @@ export default {
     const products = ref({ total: 0, showing: 0, result: [] });
     const orders = ref({ total: 0, showing: 0, result: [] });
     const currentPage = ref(1);
-    const itemsPerPage = 5;
+    const itemsPerPage = 4;
     const isLoading = ref(false);
     const isSearching = ref(false);
     const searchedProducts = ref([]);
 
-    const accessToken = "dec51cef698b578b0d383e2908f4ee6cc9ebc715";
+    const accessToken = "70ff1b3374904b1fdb0d695148369dcc0921aa0f";
 
     const fetchProducts = async () => {
       isLoading.value = true;
