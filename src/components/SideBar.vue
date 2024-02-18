@@ -5,7 +5,7 @@
       </div>
       <v-card  class="rounded-e-xl me" width="60" height="400" color="#545454"></v-card>
       <v-list class="top">
-          <v-list-item v-for="(item, i) in navegationLinks" :key="i" :value="item" class="mb-5" color="#90EE90" variant="plain">
+          <v-list-item v-for="(item, i) in navegationLinks" :key="i" :value="item" class="mb-5" :to="item.route" color="#90EE90" variant="plain">
               <template v-slot:append="{isActive}">
                <div v-if="isActive" class="a"></div>
               </template>
@@ -15,12 +15,12 @@
               <v-list-item-title v-text="item.text"></v-list-item-title>
           </v-list-item>
       </v-list>
-      <v-div style="position: absolute; bottom: 20px; margin-left: auto; margin-right: auto; left: 0; right: 0; text-align: center;">
+      <div style="position: absolute; bottom: 20px; margin-left: auto; margin-right: auto; left: 0; right: 0; text-align: center;">
         <v-btn icon="mdi mdi-cog" size="small" class="mr-2" color="#5F3B39"></v-btn>
       <v-badge dot color="#FF6259">
         <v-btn icon="mdi mdi-bell" size="small" color="#5F3B39"></v-btn>
       </v-badge>
-      </v-div>
+      </div>
      
     </v-navigation-drawer>
   </template>
@@ -34,11 +34,11 @@
           return {
               drawer: null,
               navegationLinks: [
-                  {text:"Dashboard", icon:"mdi-view-dashboard"},
-                  {text:"Pedidos", icon:"mdi-cart"},
-                  {text:"Produtos", icon:"mdi-package-variant-closed"},
-                  {text:"Relatórios", icon:"mdi-file-chart"},
-                  {text:"Logout", icon:"mdi-logout"}
+                  {text:"Dashboard", icon:"mdi-view-dashboard", route:"/"},
+                  {text:"Pedidos", icon:"mdi-cart", route:"/pedidos"},
+                  {text:"Produtos", icon:"mdi-package-variant-closed", route:"/produtos"},
+                  {text:"Relatórios", icon:"mdi-file-chart", route:"/relatorios"},
+                  {text:"Logout", icon:"mdi-logout", route:"/logout"}
               ],
               cards: ["Hoje","Amanhã"]
           } 
