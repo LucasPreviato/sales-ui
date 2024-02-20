@@ -3,7 +3,7 @@
       <div class="pa-4">
           <v-img src="/sales-ui-logo-m2.png" width="150" height="150px" class="ml-9"></v-img>
       </div>
-      <v-card  class="rounded-e-xl me" width="60" height="400" color="#545454"></v-card>
+      <v-card  class="rounded-e-xl me" width="60" height="400" color="#424242"></v-card>
       <v-list class="top">
           <v-list-item v-for="(item, i) in navegationLinks" :key="i" :value="item" class="mb-5" :to="item.route" color="#90EE90" variant="plain">
               <template v-slot:append="{isActive}">

@@ -102,7 +102,7 @@
     <h6 class="text-white ml-4 mt-n4">
       <span class="text-red">100+</span> novos pedidos essa semana
     </h6>
-    <v-card class="rounded-xl ma-2 pa-1" color="#424343">
+    <v-card class="rounded-xl ma-2 pa-1" color="#424242">
       <v-row>
         <v-col cols="12" sm="1"></v-col>
         <v-col cols="12" sm="2" class="text-center">

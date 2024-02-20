@@ -7,6 +7,7 @@
         <v-container>
             <v-row>
             <v-col cols="12" sm="8">
+              <ProductsTable />
             </v-col>
             </v-row>
         </v-container>
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import Dashboard from "@/components/dashboard/Dashboard.vue";
+import ProductsTable from "@/components/products/ProductsTable.vue";
 export default {
   name: "Products",
 };
