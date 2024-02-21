@@ -144,7 +144,7 @@ export default {
     const isSearching = ref(false);
     const searchedProducts = ref([]);
 
-    const accessToken = "70ff1b3374904b1fdb0d695148369dcc0921aa0f";
+    const accessToken = "65220ddb978d6747934239a0a64d8baa061428c5";
 
     const fetchProducts = async () => {
       isLoading.value = true;
