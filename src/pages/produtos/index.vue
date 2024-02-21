@@ -7,41 +7,7 @@
       <v-container class="ml-3">
         <v-row>
           <v-col cols="3" class="d-flex pl-0 ml-0">
-            <v-app class="ma-n4 bg-light-green-darken-1">
-              <v-container class="mx-7 mt-5 pl-4">
-                <h4 class="mb-5">Filtros</h4>
-                <v-list-item class="pl-0">
-                  <v-text-field
-                    append-inner-icon="mdi-magnify"
-                    density="compact"
-                    placeholder="SKU"
-                    variant="outlined"
-                    rounded
-                    class="text-white"
-                  ></v-text-field>
-                </v-list-item>
-                <v-list-item class="pl-0">
-                  <v-text-field
-                    append-inner-icon="mdi-magnify"
-                    density="compact"
-                    placeholder="Categoria"
-                    variant="outlined"
-                    rounded
-                    class="text-white"
-                  ></v-text-field>
-                </v-list-item>
-                <v-list-item class="pl-0">
-                  <v-text-field
-                    append-inner-icon="mdi-magnify"
-                    density="compact"
-                    placeholder="Quantidade"
-                    variant="outlined"
-                    rounded
-                    class="text-white"
-                  ></v-text-field>
-                </v-list-item>
-              </v-container>
-            </v-app>
+            <ProductsFilters />
           </v-col>
           <v-col cols="9" class="pl-0 ml-0">
             <v-data-table
@@ -89,6 +55,8 @@
 <script>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+
+import ProductsFilters from "@/components/filters/ProductsFilters.vue";
 
 export default {
   name: "ProductsPage",
